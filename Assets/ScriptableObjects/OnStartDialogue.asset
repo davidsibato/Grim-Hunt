@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a6e2a06fb625740960a1d149ede7dc, type: 3}
+  m_Name: OnStartDialogue
+  m_EditorClassIdentifier: 
+  m_enemyDialogue:
+  - Oh would you look at that, you are new here, arent'cha!
+  - My name is Vanda.  Vanda from the Vanderland. Hahaha
+  - My! Arent you a confused thing!
+  - Someone has got to show you the way around here
+  - I'm guessing,  its gonna be me. Me thinks, you are the luckiest person in the
+    world.
+  - Are you ready dear? Let's go!
+  - 'You have a dangerous and treacherous journey ahead filled with betrayal and
+    villainry. Too bad I can''t go with you. '
+  - To make it to the end of the level, you have to clear the room. Will you be the
+    last man standing? (If you survive, maybe we can meet again) Hihi
+  - 'Before I forget, you''ll need some health that you can collect after killing
+    the villains. '
+  - 'Now, now, since you''ve been a good boy, hmmm why dont I share some health with
+    you to get you started? '
+  - Hmm You want some love don't you? Well. here you go...
