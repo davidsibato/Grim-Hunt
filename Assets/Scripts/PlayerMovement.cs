@@ -23,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] FixedJoystick joystick;
     [SerializeField] public FloatValue currentHeath;
     public Signal playerHealthEvent;
-    public VectorValue startingPosition;
 
     void Start()
     {
@@ -32,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         animator.SetFloat("MoveX", 0);
         animator.SetFloat("MoveY", -1);
-        transform.position = startingPosition.initialValue;
     }
 
     void Update()

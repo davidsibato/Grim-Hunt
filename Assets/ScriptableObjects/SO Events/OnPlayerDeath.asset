@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a31f9c89c7e8257409eb7aaf65f5502e, type: 3}
-  m_Name: PlayerPostion
+  m_Script: {fileID: 11500000, guid: afde042156902ab4b9521d2a74eb2466, type: 3}
+  m_Name: OnPlayerDeath
   m_EditorClassIdentifier: 
-  initialValue: {x: 3.8, y: 20}
+  OnRaise:
+    m_PersistentCalls:
+      m_Calls: []

@@ -11,6 +11,7 @@ public class HeartManager : MonoBehaviour
     [SerializeField] public Sprite halffullHeart;
     [SerializeField] public FloatValue HeartContainer;
     [SerializeField] public FloatValue playerCurrenthealth;
+    public GameEvent onPlayerDeath;
 
 
     void Start()
@@ -41,6 +42,11 @@ public class HeartManager : MonoBehaviour
             {
                 hearts[i].sprite = halffullHeart;
             }
+        }
+
+        if(tempHealth < 1)
+        {
+            onPlayerDeath.Raise();
         }
     }
 }

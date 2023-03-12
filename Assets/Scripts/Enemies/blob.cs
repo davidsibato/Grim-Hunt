@@ -10,6 +10,7 @@ public class blob : EnemyAttack
     public float chaseRadius;
     public float attackRadius;
     public Transform attackTarget;
+    public Transform initialAttack;
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -33,4 +34,6 @@ public class blob : EnemyAttack
             myRigidbody.MovePosition(temp);
         }
     }
+
+    
 }

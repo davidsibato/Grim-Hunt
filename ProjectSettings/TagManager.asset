@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - FixedJoystick
+  - initial
   layers:
   - Default
   - TransparentFX
