@@ -22,15 +22,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] FixedJoystick joystick;
     [SerializeField] public FloatValue currentHeath;
-    public GameEvent playerHealthEvent;
+    public Signal playerHealthEvent;
+    public VectorValue startingPosition;
+
     void Start()
     {
         currentState = PlayerState.walk;
         animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
-        joystick = GameObject.FindWithTag("FixedJoystick").GetComponent<FixedJoystick>();
         animator.SetFloat("MoveX", 0);
         animator.SetFloat("MoveY", -1);
+        transform.position = startingPosition.initialValue;
     }
 
     void Update()
@@ -44,10 +46,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (currentState!=PlayerState.walk || currentState != PlayerState.idle)
         {
-        //    StartCoroutine(AttackCo());
-        //}
-        //else if(currentState==PlayerState.walk || currentState == PlayerState.idle)
-        //{
             UpdateAnimationAndMove();
         }
         if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack && currentState != PlayerState.stagger)
@@ -71,18 +69,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (change != Vector3.zero)
         {
-            MovePlayer();
-            animator.SetFloat("MoveX", change.x);
-            if(change.x < 0)
-            {
-                transform.localScale = new Vector3(-1f, 1f);
-            }
-            else
-            {
-                transform.localScale = new Vector3(1f, 1f);
-            }
-            animator.SetFloat("MoveY", change.y);
             animator.SetBool("Walking", true);
+            animator.SetFloat("MoveY", change.y);
+            animator.SetFloat("MoveX", change.x);
+            MovePlayer();
+            
+            
         }
         else
         {
@@ -99,11 +91,16 @@ public class PlayerMovement : MonoBehaviour
     public void Knock(float knockTime, float damage)
     {
 
-        currentHeath.initialValue -= damage;
-        if (currentHeath.initialValue > 0)
+        currentHeath.RuntimeValue -= damage;
+        playerHealthEvent.Raise();
+        if (currentHeath.RuntimeValue > 0)
         {
-            playerHealthEvent.Raise();
+            
             StartCoroutine(KnockCo(knockTime));
+        }
+        else
+        {
+            this.gameObject.SetActive(false);
         }
         
     }
